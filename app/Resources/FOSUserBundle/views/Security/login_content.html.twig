@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+                <div class="products-catagories-area clearfix">
+            <div class="amado-pro-catagory clearfix">
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<form action="{{ path("fos_user_security_check") }}" method="post">
+    {% if csrf_token %}
+        <input class="btn btn-outline-warning" type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    {% endif %}
+    
+    <div class="form-group">
+        <label for="username"><u><b>{{ 'Username'|trans }}</u></b></label>
+        <input  type="text" id="username" name="_username" value="{{ last_username }}" required="required" autocomplete="username" />
+    </div>
+
+    <div class="form-group">
+        <label for="password"><u><b>{{ 'Password'|trans }}</b></u></label>
+        <input type="password" id="password" name="_password" required="required" autocomplete="current-password" />
+    </div>
+    
+
+
+    <div class="form-check">
+        <input type="checkbox" class="filled-in form-check-input" id="remember_me" name="_remember_me" value="on" checked="checked">
+        <label class="form-check-label"for="remember_me">{{ 'Remember_me'|trans }}</label>
+    </div>
+
+
+    <br><br>
+    <input class="btn btn-outline-warning" type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+    <br><br>
+</form>
+{% endblock %}

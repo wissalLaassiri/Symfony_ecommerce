@@ -1,0 +1,352 @@
+<?php
+
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
+/**
+ * Produit
+ *
+ * @ORM\Table(name="produit")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ProduitRepository")
+ */
+class Produit
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="titre", type="string", length=255)
+     */
+    private $titre;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="image", type="string", length=255)
+     */
+    private $image;
+
+
+    /**
+     *
+     * @Assert\NotBlank(message="Please, upload the product brochure as a jpg file.")
+     * @Assert\File( mimeTypes = {"image/jpeg", "image/gif", "image/png"})
+     */
+    private $imagefile;
+
+ 
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255)
+     */
+    private $description;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu", type="string", length=255)
+     */
+    private $contenu;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="publier", type="string", length=255)
+     */
+    private $publier;
+
+    /**
+     * @ORM\Column(name="DateDeCreation", type="datetime")
+     */
+    private $DateDeCreation;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="position", type="string", length=255)
+     */
+    private $position;
+
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="categorie")
+     */  
+    private $categorie;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Marque")
+     */  
+    private $marque;
+
+
+
+
+    public function __toString() {
+        return $this->titre;
+    }
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set titre
+     *
+     * @param string $titre
+     *
+     * @return Produit
+     */
+    public function setTitre($titre)
+    {
+        $this->titre = $titre;
+
+        return $this;
+    }
+
+    /**
+     * Get titre
+     *
+     * @return string
+     */
+    public function getTitre()
+    {
+        return $this->titre;
+    }
+
+        /**
+     * Set image
+     *
+     * @param string $image
+     *
+     * @return Produit
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    /**
+     * Get image
+     *
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+     
+    /**
+     * Set imagefile
+     *
+     * @param string $imagefile
+     *
+     * @return Produit
+     */
+    public function setImagefile($imagefile)
+    {
+        $this->imagefile = $imagefile;
+
+        return $this;
+    }
+
+    /**
+     * Get imagefile
+     *
+     * @return string
+     */
+    public function getImagefile()
+    {
+        return $this->imagefile;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Produit
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set contenu
+     *
+     * @param string $contenu
+     *
+     * @return Produit
+     */
+    public function setContenu($contenu)
+    {
+        $this->contenu = $contenu;
+
+        return $this;
+    }
+
+    /**
+     * Get contenu
+     *
+     * @return string
+     */
+    public function getContenu()
+    {
+        return $this->contenu;
+    }
+
+    /**
+     * Set publier
+     *
+     * @param string $publier
+     *
+     * @return Produit
+     */
+    public function setPublier($publier)
+    {
+        $this->publier = $publier;
+
+        return $this;
+    }
+
+    /**
+     * Get publier
+     *
+     * @return string
+     */
+    public function getPublier()
+    {
+        return $this->publier;
+    }
+
+ 
+ 
+    /**
+     * Set position
+     *
+     * @param string $position
+     *
+     * @return Produit
+     */
+    public function setPosition($position)
+    {
+        $this->position = $position;
+
+        return $this;
+    }
+
+    /**
+     * Get position
+     *
+     * @return string
+     */
+    public function getPosition()
+    {
+        return $this->position;
+    }
+
+    /**
+     * Set categorie
+     *
+     * @param \AppBundle\Entity\categorie $categorie
+     *
+     * @return Produit
+     */
+    public function setCategorie(\AppBundle\Entity\categorie $categorie = null)
+    {
+        $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \AppBundle\Entity\categorie
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * Set marque
+     *
+     * @param \AppBundle\Entity\Marque $marque
+     *
+     * @return Produit
+     */
+    public function setMarque(\AppBundle\Entity\Marque $marque = null)
+    {
+        $this->marque = $marque;
+
+        return $this;
+    }
+
+    /**
+     * Get marque
+     *
+     * @return \AppBundle\Entity\Marque
+     */
+    public function getMarque()
+    {
+        return $this->marque;
+    }
+
+    /**
+     * Set dateDeCreation
+     *
+     * @param \DateTime $dateDeCreation
+     *
+     * @return Produit
+     */
+    public function setDateDeCreation($dateDeCreation)
+    {
+        $this->DateDeCreation = $dateDeCreation;
+
+        return $this;
+    }
+
+    /**
+     * Get dateDeCreation
+     *
+     * @return \DateTime
+     */
+    public function getDateDeCreation()
+    {
+        return $this->DateDeCreation;
+    }
+}

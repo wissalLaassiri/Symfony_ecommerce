@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+     <div class="products-catagories-area clearfix">
+            <div class="amado-pro-catagory clearfix">
+    <br><br>
+    <h1>Marque</h1>
+
+ <table class="table table-striped" width="1200">
+        <tbody>
+            <tr>
+                <th  scope="col">Id</th>
+                <td>{{ marque.id }}</td>
+            </tr>
+            <tr>
+                <th scope="col">Titre</th>
+                <td>{{ marque.titre }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a class="btn btn-outline-warning" href="{{ path('marque_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a class="btn btn-outline-secondary" href="{{ path('marque_edit', { 'id': marque.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input class="btn btn-outline-dark" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

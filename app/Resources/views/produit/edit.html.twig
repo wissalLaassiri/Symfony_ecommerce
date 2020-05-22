@@ -1,0 +1,84 @@
+{% extends 'base_connected.html.twig' %}
+
+{% block body %}
+            <div class="row">
+                 <div class="col-lg-12">
+                     <h1 class="page-header"><u>Produit edit</u></h1>
+                </div>
+            </div>
+
+    {{ form_start(edit_form) }}
+          <form role="form">
+             <div class="form-group input-group">
+               <span class="input-group-addon">Titre</span>
+                            {{ form_widget(edit_form.titre) }} 
+              </div>
+          </form>
+
+
+          <form role="form">
+             <div class="form-group input-group">
+               <span class="input-group-addon">Image</span>
+                          {{ form_widget(edit_form.imagefile) }}  
+                       </div>
+          </form>
+
+
+          <form role="form">
+             <div class="form-group input-group">
+               <span class="input-group-addon">Description</span>
+                          {{ form_widget(edit_form.description) }}
+                   </div>
+          </form>
+
+
+          <form role="form">
+             <div class="form-group input-group">
+               <span class="input-group-addon">Publier</span>
+                         {{ form_widget(edit_form.publier) }}
+                    </div>
+          </form>
+
+
+          <form role="form">
+             <div class="form-group input-group">
+               <span class="input-group-addon">Contenu</span>
+                           {{ form_widget(edit_form.contenu) }}
+                    </div>
+          </form>
+
+
+          <form role="form">
+             <div class="form-group input-group">
+               <span class="input-group-addon">Position</span>
+                           {{ form_widget(edit_form.position) }}
+                    </div>
+          </form>
+
+
+          <form role="form">
+             <div class="form-group input-group">
+               <span class="input-group-addon">Categorie</span>
+                           {{ form_widget(edit_form.categorie) }}
+                    </div>
+          </form>
+
+
+          <form role="form">
+             <div class="form-group input-group">
+               <span class="input-group-addon">Marque</span>
+                           {{ form_widget(edit_form.marque) }}
+                    </div>
+          </form>
+
+      <input class="btn btn-primary" type="submit" value="Edit" /><br><br>
+    
+    {{ form_end(edit_form) }}
+
+            <a class="btn btn-primary" href="{{ path('produit_index') }}">Back to the list</a><br><br>
+
+            {{ form_start(delete_form) }}
+                <input  class="btn btn-primary" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+    
+{% endblock %}

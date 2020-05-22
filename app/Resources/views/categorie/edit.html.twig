@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+            <div class="products-catagories-area clearfix">
+            <div class="amado-pro-catagory clearfix">
+    <br><br>
+    <h1>Categorie edit</h1>
+
+    {{ form_start(edit_form) }}
+
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+                  {{ form_label(edit_form.titre) }}
+                  {{ form_widget(edit_form.titre) }} 
+          </div>
+        </div>
+      </div>
+
+        <input type="submit"   class="btn btn-outline-secondary"   value="Edit" />
+
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a class="btn btn-outline-secondary" href="{{ path('categorie_index') }}">Back to the list</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" class="btn btn-outline-dark" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+                <div class="products-catagories-area clearfix">
+            <div class="amado-pro-catagory clearfix">
+    <br><br>
+       <p align="center"><h1><u>Produit</u></h1></p>
+
+    {{ form_start(form) }}
+
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+            {{ form_label(form.titre) }}
+            {{ form_widget(form.titre) }} 
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+                  {{ form_label(form.imagefile) }}
+                      {{ form_widget(form.imagefile, {'attr': {"required":true}}) }}   
+          </div>
+        </div>
+      </div> 
+       <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">       
+                  {{ form_label(form.description) }}
+                  {{ form_widget(form.description) }} 
+          </div>
+        </div>
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+               
+                {{ form_label(form.publier) }}
+                {{ form_widget(form.publier) }}
+          </div>
+        </div>
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+                 {{ form_label(form.contenu) }}
+                 {{ form_widget(form.contenu) }}
+          </div>
+        </div>
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+                 {{ form_label(form.position) }}
+                 {{ form_widget(form.position) }}
+          </div>
+        </div>
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+                 {{ form_label(form.categorie) }}
+                {{ form_widget(form.categorie) }}
+          </div>
+        </div>
+      </div>
+      <div class="input-group input-group-sm mb-3">
+        <div class="input-group-prepend">
+          <div class="input-group-text">
+                 {{ form_label(form.marque) }}
+                {{ form_widget(form.marque) }}
+          </div>
+        </div>
+      </div>
+
+
+
+        <input type="submit"  class="btn btn-outline-warning" value="Create" />
+        
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a class="btn btn-outline-secondary" href="{{ path('produit_index') }}">Back to the list</a>
+        </li>
+    </ul>
+{% endblock %}

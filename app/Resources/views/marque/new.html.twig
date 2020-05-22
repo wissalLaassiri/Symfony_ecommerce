@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+        <!-- Product Catagories Area Start -->
+        <div class="products-catagories-area clearfix">
+            <div class="amado-pro-catagory clearfix">
+
+    <br><br>
+   <p align="center"><h1><u>Marque creation</u></h1></p>
+
+    {{ form_start(form) }}
+    <div class="input-group input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <div class="input-group-text">
+            {{ form_label(form.titre) }}
+                {{ form_widget(form.titre) }} </div>
+            </div></div>
+ 
+        <input type="submit"  class="btn btn-outline-warning" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a class="btn btn-outline-secondary" href="{{ path('marque_index') }}">Back to the list</a>
+        </li>
+    </ul>
+       </div>
+</div>
+{% endblock %}
